@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Domine:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lilita+One&family=Patua+One&family=Rubik+Scribble&display=swap');
+*{
+  text-decoration: none !important;
+  list-style-type: none !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: rgb(255, 255, 255) !important;
+  font-family: "Patua One", serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar {
+  width: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+::-webkit-scrollbar-thumb {
+  background: rgb(211, 4, 4);
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+.nav-logo{
+  color: rgb(211, 4, 4);
+  font-size: 40px;
+}
+.nav-login{
+  background-color: rgb(211, 4, 4);
   color: white;
+  text-transform: uppercase;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  box-shadow: 1px 1px 5px black;
 }
-
-.App-link {
-  color: #61dafb;
+.nav-bar-icon{
+  font-size: 30px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-addToCart{
+  width: 90px !important;
+  cursor: pointer;
+}
+.slider-image img{
+  width: 100%;
+}
+.login-btn{
+  background-color: rgb(141, 52, 52) !important;
+  color: white !important;
+  padding: 10px;
+}
+.phone-number{
+  display: flex;
+  gap: 5px;
+  /* border: 1px solid black; */
+  padding: 5px;
+  border-radius: 5px;
+}
+.phone-number input{
+  width: 90%;
+  outline: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.login-google{
+  background-color: white!important;
+  color: rgb(141, 52, 52) !important;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  box-shadow: 1px 1px 5px black !important;
+}
+.login-google span img{
+  width: 20px;
 }
