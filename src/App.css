@@ -33,6 +33,7 @@ body{
 }
 .nav-bar-icon{
   font-size: 30px;
+  cursor: pointer;
 }
 .nav-addToCart{
   width: 90px !important;
@@ -41,21 +42,16 @@ body{
 .slider-image img{
   width: 100%;
 }
+ .auth{
+  height: 100vh;
+}
+.auth .login{
+  margin-top: -105px;
+} 
 .login-btn{
   background-color: rgb(141, 52, 52) !important;
   color: white !important;
   padding: 10px;
-}
-.phone-number{
-  display: flex;
-  gap: 5px;
-  /* border: 1px solid black; */
-  padding: 5px;
-  border-radius: 5px;
-}
-.phone-number input{
-  width: 90%;
-  outline: none;
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -65,7 +61,7 @@ input[type=number]::-webkit-outer-spin-button {
 .login-google{
   background-color: white!important;
   color: rgb(141, 52, 52) !important;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 10px;
   display: flex;
   gap: 5px;
@@ -73,4 +69,130 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .login-google span img{
   width: 20px;
+}
+.explore-menu{
+  overflow-x: hidden !important;
+  display: flex !important;
+}
+.ExploreMenu{
+  border-radius: 50%;
+  cursor: pointer;
+}
+.menu-image {
+  transition: transform 0.5s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.ExploreMenu {
+  position: relative; 
+  overflow: hidden; 
+}
+
+.ExploreMenu:hover .menu-image {
+  transform: scale(1.1) rotateY(10deg);
+}
+
+.ExploreMenu:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer{
+  background-color: rgb(141, 52, 52);
+}
+.navbar{
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+.active{
+  transform: scaleX(1);
+}
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); 
+  /* z-index: 10; */
+  /* opacity: 0;  */
+  /* pointer-events: none;  */
+  /* transition: opacity 0.3s ease-in-out; */
+}
+.navbar-show{
+  padding: 20px;
+}
+.navbar-show .nav-login{
+  display: flex;
+  justify-content: center;
+}
+.nav-links{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px;
+  padding-top: 20px;
+}
+.nav-links a{
+  color: black;
+  font-size: 20px;
+  padding: 10px 0 10px 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+.nav-links a:hover{
+  background-color: rgb(54, 54, 54);
+  border-radius: 5px;
+  color: white !important;
+  transform: translateX(10px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.navbar-show .icon{
+  display: flex;
+  justify-content: right;
+  padding-top: 20px;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+}
+.cart-container{
+  background-color: aqua !important;
+  width: 50%;
+}
+.cart-box {
+  transition: transform 0.3s ease;
+}
+
+.cart-box:hover {
+  transform: translateY(-5px) rotateX(5deg);
+}
+
+.order-box {
+  width: 450px;
 }
