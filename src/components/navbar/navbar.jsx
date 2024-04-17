@@ -19,7 +19,7 @@ export default function Navbar() {
     }
     return (
         <>
-        <header className={`bg-${bgColor} text-${color} header sticky top-0 z-50`}>
+        <header className={`bg-${bgColor} text-${color} header sticky top-0 z-50 shadow-md`}>
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-0 lg:px-8" aria-label="Global">
                 <span onClick={navbarIcon}  className="nav-bar-icon">
                 <FontAwesomeIcon icon={faBarsStaggered} />

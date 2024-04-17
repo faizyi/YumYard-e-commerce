@@ -4,7 +4,6 @@ export default function OrderDetails({ orders }) {
   // Calculate subtotal and total amount
   const subtotal = orders.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
   const total = subtotal + 5; // Assuming $5 for shipping
-  
   return (
     <div className="order-box max-w-lg mx-auto bg-white rounded-xl overflow-hidden text-center">
       <div className="p-4">
