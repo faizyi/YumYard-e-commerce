@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth,createUserWithEmailAndPassword,
-signInWithEmailAndPassword, onAuthStateChanged,  } from "firebase/auth";
+signInWithEmailAndPassword, onAuthStateChanged,signOut  } from "firebase/auth";
 import {  getDatabase,ref ,set,child, get,onValue } 
 from  "firebase/database";
 import { getStorage, uploadBytesResumable, getDownloadURL,ref as sRef } from "firebase/storage";
@@ -30,6 +30,7 @@ export {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
+    signOut,
     ref,
     set,
     child,

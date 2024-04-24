@@ -1,10 +1,15 @@
-import React from 'react'
+import {useState}from 'react'
+import Swal from 'sweetalert2';
 import { auth,signInWithEmailAndPassword,
 db,ref,child,getDatabase, get} from '../../../firebase/firebase'
 import { Link ,useNavigate} from 'react-router-dom';
+import {showLoader,hideLoader} from '../../../redux/loader'
+import {useDispatch} from 'react-redux'
 export default function Login({email,pass}) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const login = (e) =>{
+    dispatch(showLoader())
     e.preventDefault();
     signInWithEmailAndPassword(auth, email.current.value, pass.current.value)
     .then((userCredential) => {
@@ -16,6 +21,8 @@ export default function Login({email,pass}) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      Swal.fire("Please Signup First");
+      dispatch(hideLoader())
       console.log(errorMessage);
     })
   }
@@ -23,12 +30,17 @@ export default function Login({email,pass}) {
     const dbRef = ref(getDatabase());
     get(child(dbRef, `admin/${uid}`)).then((snapshot) => {
       if (snapshot.exists()) {
-        navigate("/addProducts");
+        Swal.fire("Login Successful");
+        dispatch(hideLoader())
+        navigate("/");
       } else {
-        navigate("/cart");
+        Swal.fire("Login Successful");
+        dispatch(hideLoader())
+        navigate("/");
       }
     }).catch((error) => {
-      console.error(error);
+      dispatch(hideLoader())
+      console.log(error);
     });
   }
   return (

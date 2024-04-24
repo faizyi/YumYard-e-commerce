@@ -3,11 +3,14 @@ import Swal from 'sweetalert2';
 import { auth,createUserWithEmailAndPassword,ref,
 set,db, } from '../../../firebase/firebase'
 import { Link ,useNavigate} from 'react-router-dom';
-import Login from './Login';
+import {showLoader,hideLoader} from '../../../redux/loader'
+import {useDispatch} from 'react-redux'
 export default function Signup({email,pass}) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isSignup, setIsSignup] = useState(false);
     const signup = (e) =>{
+        dispatch(showLoader())
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email.current.value, pass.current.value)
         .then(async (userCredential) => {
@@ -30,6 +33,9 @@ export default function Signup({email,pass}) {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage);
+          dispatch(hideLoader())
+          email.current.value = "";
+          pass.current.value = "";
         })
     }
   return (

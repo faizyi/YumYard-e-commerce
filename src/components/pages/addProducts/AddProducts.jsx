@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import {ref,
   set,db,uploadBytesResumable,storage,getDownloadURL,sRef } from '../../../firebase/firebase'
 export default function AddProducts() {
+  const [id, setId] = useState(1);
   const [foodName, setFoodName] = useState('');
   const [foodPrice, setFoodPrice] = useState('');
   const foodImageRef = useRef(null);
@@ -11,6 +12,7 @@ export default function AddProducts() {
   const itemId = randomId.toFixed(0)
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setId(prev=>prev + 1);
     const foodPics = foodImageRef.current.files[0].name
     const storageRef = sRef(storage, `FoodPics/${foodPics}`);
     const uploadTask = uploadBytesResumable(storageRef, foodImageRef.current.files[0]);
@@ -34,9 +36,11 @@ export default function AddProducts() {
     getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
       try {
         await set(ref(db, 'foodItems/'+ itemId), {
+          itemId : id,
           itemName : foodName,
-          itemPrice : `Rs ${foodPrice}`,
-          itemUrl : downloadURL
+          itemPrice : `${foodPrice}`,
+          itemUrl : downloadURL,
+          itemQuantity : 1,
             });
             Swal.fire("Item Add");
             setFoodName("")
